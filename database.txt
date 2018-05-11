@@ -1,0 +1,106 @@
+CREATE TABLE [dbo].[chamcong](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[idnv] [int] NULL,
+	[idtg] [int] NULL,
+	[tongngay] [int] NULL DEFAULT ((0)),
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[chucvu]    Script Date: 5/11/2018 3:50:23 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[chucvu](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[nhanvien]    Script Date: 5/11/2018 3:50:23 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].[nhanvien](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NOT NULL,
+	[birth] [date] NULL,
+	[gender] [nvarchar](10) NULL,
+	[phone] [varchar](15) NULL,
+	[address] [nvarchar](100) NULL,
+	[cmt] [varchar](15) NULL,
+	[level] [tinyint] NULL,
+	[idcv] [int] NULL,
+	[idpb] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[phongban]    Script Date: 5/11/2018 3:50:23 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[phongban](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](50) NOT NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY],
+UNIQUE NONCLUSTERED 
+(
+	[name] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+/****** Object:  Table [dbo].[thoigian]    Script Date: 5/11/2018 3:50:23 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[thoigian](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[dates] [int] NULL,
+	[months] [int] NULL,
+	[years] [int] NULL,
+PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+
+GO
+ALTER TABLE [dbo].[chamcong]  WITH CHECK ADD FOREIGN KEY([idnv])
+REFERENCES [dbo].[nhanvien] ([id])
+GO
+ALTER TABLE [dbo].[chamcong]  WITH CHECK ADD FOREIGN KEY([idtg])
+REFERENCES [dbo].[thoigian] ([id])
+GO
+ALTER TABLE [dbo].[nhanvien]  WITH CHECK ADD FOREIGN KEY([idcv])
+REFERENCES [dbo].[chucvu] ([id])
+GO
+ALTER TABLE [dbo].[nhanvien]  WITH CHECK ADD FOREIGN KEY([idpb])
+REFERENCES [dbo].[phongban] ([id])
+GO
