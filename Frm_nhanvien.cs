@@ -128,5 +128,10 @@ namespace WFQLNV
         {
             this.Close();
         }
+
+        private void DGV_nhanvien_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     } 
 }

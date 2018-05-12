@@ -53,10 +53,6 @@
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_modify = new System.Windows.Forms.Button();
             this.DGV_nhanvien = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.birth = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,6 +63,10 @@
             this.level = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.name2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.rad_nam = new System.Windows.Forms.RadioButton();
             this.rad_nu = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.DGV_nhanvien)).BeginInit();
@@ -79,7 +79,7 @@
             this.label1.ForeColor = System.Drawing.Color.Aqua;
             this.label1.Location = new System.Drawing.Point(12, 37);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 18);
+            this.label1.Size = new System.Drawing.Size(64, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Họ Tên";
             // 
@@ -90,7 +90,7 @@
             this.label3.ForeColor = System.Drawing.Color.Aqua;
             this.label3.Location = new System.Drawing.Point(541, 179);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(230, 24);
+            this.label3.Size = new System.Drawing.Size(254, 25);
             this.label3.TabIndex = 2;
             this.label3.Text = "DANH SÁCH NHÂN VIÊN";
             // 
@@ -101,7 +101,7 @@
             this.label4.ForeColor = System.Drawing.Color.Aqua;
             this.label4.Location = new System.Drawing.Point(781, 137);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 18);
+            this.label4.Size = new System.Drawing.Size(91, 20);
             this.label4.TabIndex = 3;
             this.label4.Text = "Phòng Ban";
             // 
@@ -112,7 +112,7 @@
             this.label5.ForeColor = System.Drawing.Color.Aqua;
             this.label5.Location = new System.Drawing.Point(781, 88);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(64, 18);
+            this.label5.Size = new System.Drawing.Size(73, 20);
             this.label5.TabIndex = 4;
             this.label5.Text = "Chức Vụ";
             // 
@@ -123,7 +123,7 @@
             this.label6.ForeColor = System.Drawing.Color.Aqua;
             this.label6.Location = new System.Drawing.Point(781, 41);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(65, 18);
+            this.label6.Size = new System.Drawing.Size(74, 20);
             this.label6.TabIndex = 5;
             this.label6.Text = "Học Vấn";
             // 
@@ -134,7 +134,7 @@
             this.label7.ForeColor = System.Drawing.Color.Aqua;
             this.label7.Location = new System.Drawing.Point(390, 136);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 18);
+            this.label7.Size = new System.Drawing.Size(85, 20);
             this.label7.TabIndex = 6;
             this.label7.Text = "Số CMND";
             // 
@@ -145,7 +145,7 @@
             this.label8.ForeColor = System.Drawing.Color.Aqua;
             this.label8.Location = new System.Drawing.Point(390, 88);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(56, 18);
+            this.label8.Size = new System.Drawing.Size(64, 20);
             this.label8.TabIndex = 7;
             this.label8.Text = "Địa Chỉ";
             // 
@@ -156,7 +156,7 @@
             this.label9.ForeColor = System.Drawing.Color.Aqua;
             this.label9.Location = new System.Drawing.Point(390, 37);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 18);
+            this.label9.Size = new System.Drawing.Size(42, 20);
             this.label9.TabIndex = 8;
             this.label9.Text = "SĐT";
             // 
@@ -167,7 +167,7 @@
             this.label10.ForeColor = System.Drawing.Color.Aqua;
             this.label10.Location = new System.Drawing.Point(12, 140);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(67, 18);
+            this.label10.Size = new System.Drawing.Size(76, 20);
             this.label10.TabIndex = 9;
             this.label10.Text = "Giới Tính";
             // 
@@ -178,7 +178,7 @@
             this.label11.ForeColor = System.Drawing.Color.Aqua;
             this.label11.Location = new System.Drawing.Point(12, 92);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(75, 18);
+            this.label11.Size = new System.Drawing.Size(85, 20);
             this.label11.TabIndex = 10;
             this.label11.Text = "Ngày Sinh";
             // 
@@ -187,7 +187,7 @@
             this.txt_level.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_level.Location = new System.Drawing.Point(882, 33);
             this.txt_level.Name = "txt_level";
-            this.txt_level.Size = new System.Drawing.Size(198, 26);
+            this.txt_level.Size = new System.Drawing.Size(198, 27);
             this.txt_level.TabIndex = 9;
             // 
             // DTP_dob
@@ -203,7 +203,7 @@
             this.txt_name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_name.Location = new System.Drawing.Point(95, 29);
             this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(218, 26);
+            this.txt_name.Size = new System.Drawing.Size(218, 27);
             this.txt_name.TabIndex = 1;
             // 
             // txt_phone
@@ -211,7 +211,7 @@
             this.txt_phone.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_phone.Location = new System.Drawing.Point(473, 29);
             this.txt_phone.Name = "txt_phone";
-            this.txt_phone.Size = new System.Drawing.Size(193, 26);
+            this.txt_phone.Size = new System.Drawing.Size(193, 27);
             this.txt_phone.TabIndex = 6;
             // 
             // txt_address
@@ -219,7 +219,7 @@
             this.txt_address.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_address.Location = new System.Drawing.Point(473, 79);
             this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(193, 26);
+            this.txt_address.Size = new System.Drawing.Size(193, 27);
             this.txt_address.TabIndex = 7;
             // 
             // txt_cmt
@@ -227,7 +227,7 @@
             this.txt_cmt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_cmt.Location = new System.Drawing.Point(473, 128);
             this.txt_cmt.Name = "txt_cmt";
-            this.txt_cmt.Size = new System.Drawing.Size(193, 26);
+            this.txt_cmt.Size = new System.Drawing.Size(193, 27);
             this.txt_cmt.TabIndex = 8;
             // 
             // cbb_chucvu
@@ -236,7 +236,7 @@
             this.cbb_chucvu.FormattingEnabled = true;
             this.cbb_chucvu.Location = new System.Drawing.Point(882, 80);
             this.cbb_chucvu.Name = "cbb_chucvu";
-            this.cbb_chucvu.Size = new System.Drawing.Size(198, 26);
+            this.cbb_chucvu.Size = new System.Drawing.Size(198, 28);
             this.cbb_chucvu.TabIndex = 10;
             // 
             // cbb_phongban
@@ -245,14 +245,14 @@
             this.cbb_phongban.FormattingEnabled = true;
             this.cbb_phongban.Location = new System.Drawing.Point(882, 129);
             this.cbb_phongban.Name = "cbb_phongban";
-            this.cbb_phongban.Size = new System.Drawing.Size(198, 26);
+            this.cbb_phongban.Size = new System.Drawing.Size(198, 28);
             this.cbb_phongban.TabIndex = 11;
             // 
             // btn_add
             // 
             this.btn_add.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btn_add.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_add.Font = new System.Drawing.Font("Stencil", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btn_add.Location = new System.Drawing.Point(1112, 66);
             this.btn_add.Name = "btn_add";
@@ -277,7 +277,7 @@
             // 
             this.btn_deleteall.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btn_deleteall.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_deleteall.Font = new System.Drawing.Font("Stencil", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_deleteall.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_deleteall.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.btn_deleteall.Location = new System.Drawing.Point(1195, 117);
             this.btn_deleteall.Name = "btn_deleteall";
@@ -293,7 +293,7 @@
             this.btn_delete.Cursor = System.Windows.Forms.Cursors.Default;
             this.btn_delete.Enabled = false;
             this.btn_delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_delete.Font = new System.Drawing.Font("Stencil", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete.ForeColor = System.Drawing.Color.MidnightBlue;
             this.btn_delete.Location = new System.Drawing.Point(1112, 117);
             this.btn_delete.Name = "btn_delete";
@@ -338,45 +338,7 @@
             this.DGV_nhanvien.Size = new System.Drawing.Size(1257, 348);
             this.DGV_nhanvien.TabIndex = 16;
             this.DGV_nhanvien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_nhanvien_cellclick);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(423, 585);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 26);
-            this.textBox1.TabIndex = 17;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(643, 586);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(153, 26);
-            this.comboBox1.TabIndex = 18;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.Aqua;
-            this.label12.Location = new System.Drawing.Point(1151, 37);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(82, 18);
-            this.label12.TabIndex = 31;
-            this.label12.Text = "Chức Năng";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.Aqua;
-            this.label13.Location = new System.Drawing.Point(12, 161);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(1268, 18);
-            this.label13.TabIndex = 32;
-            this.label13.Text = resources.GetString("label13.Text");
+            this.DGV_nhanvien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGV_nhanvien_CellContentClick);
             // 
             // id
             // 
@@ -444,13 +406,52 @@
             this.name2.Name = "name2";
             this.name2.Width = 150;
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(423, 585);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(214, 27);
+            this.textBox1.TabIndex = 17;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(643, 586);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(153, 28);
+            this.comboBox1.TabIndex = 18;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Aqua;
+            this.label12.Location = new System.Drawing.Point(1151, 37);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(92, 20);
+            this.label12.TabIndex = 31;
+            this.label12.Text = "Chức Năng";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Aqua;
+            this.label13.Location = new System.Drawing.Point(12, 161);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(1521, 20);
+            this.label13.TabIndex = 32;
+            this.label13.Text = resources.GetString("label13.Text");
+            // 
             // rad_nam
             // 
             this.rad_nam.AutoSize = true;
             this.rad_nam.ForeColor = System.Drawing.Color.Aqua;
             this.rad_nam.Location = new System.Drawing.Point(95, 142);
             this.rad_nam.Name = "rad_nam";
-            this.rad_nam.Size = new System.Drawing.Size(47, 17);
+            this.rad_nam.Size = new System.Drawing.Size(52, 19);
             this.rad_nam.TabIndex = 33;
             this.rad_nam.TabStop = true;
             this.rad_nam.Text = "Nam";
@@ -462,7 +463,7 @@
             this.rad_nu.ForeColor = System.Drawing.Color.Aqua;
             this.rad_nu.Location = new System.Drawing.Point(150, 141);
             this.rad_nu.Name = "rad_nu";
-            this.rad_nu.Size = new System.Drawing.Size(39, 17);
+            this.rad_nu.Size = new System.Drawing.Size(41, 19);
             this.rad_nu.TabIndex = 34;
             this.rad_nu.TabStop = true;
             this.rad_nu.Text = "Nữ";

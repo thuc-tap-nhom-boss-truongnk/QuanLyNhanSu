@@ -14,7 +14,7 @@ namespace ManageStaffServiceWCF
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class Service1 : IService1
     {
-        string strQuery = @"Data Source=.\SQLEXPRESS;Initial Catalog=QuanLyNhanVien;Persist Security Info=True;User ID=sa;Password=1234567";
+        string strQuery = @"Data Source=DESKTOP-GNTLGC7;Initial Catalog=QLNS;Integrated Security=True";
 
     // 1. nhan vien
         public string AddNhanVien(NhanVien nv)
@@ -61,6 +61,19 @@ namespace ManageStaffServiceWCF
             SqlConnection con = new SqlConnection(strQuery);
             con.Open();
             SqlCommand cmd = new SqlCommand("select dbo.nhanvien.id, dbo.nhanvien.name, birth, gender,phone,address, cmt,level, dbo.chucvu.id, dbo.chucvu.name, dbo.phongban.id, dbo.phongban.name from dbo.nhanvien, dbo.chucvu,dbo.phongban where chucvu.id=nhanvien.idcv and nhanvien.idpb=phongban.id", con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            return ds;
+        }
+
+        public DataSet ShowNhanVienRG()
+        {
+            SqlConnection con = new SqlConnection(strQuery);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select dbo.nhanvien.id, dbo.nhanvien.name, birth from dbo.nhanvien", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             sda.Fill(ds);
@@ -205,16 +218,32 @@ namespace ManageStaffServiceWCF
             con.Close();
         }
 
-<<<<<<< HEAD
+        public DataSet FindChucVu(ChucVu cv)
+        {
+            SqlConnection con = new SqlConnection(strQuery);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select * from chucvu where name like N'%@name%'", con);
+            cmd.Parameters.AddWithValue("@name", cv.CVname);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            return ds;
+        }
+
         public void addThoiGian(thoigian tg)
         {
             SqlConnection con = new SqlConnection(strQuery);
             con.Open();
-            SqlCommand cmd = new SqlCommand("insert into thoigian (days,months,years) values (@days,@months,@years)", con);
-            cmd.Parameters.AddWithValue("@days", tg.Days);
-            cmd.Parameters.AddWithValue("@months", tg.Months);
-            cmd.Parameters.AddWithValue("@years", tg.Years);
-            cmd.ExecuteNonQuery();
+            if (!checkThoiGian(tg)) {
+                SqlCommand cmd = new SqlCommand("insert into thoigian (days,months,years) values (@days,@months,@years)", con);
+                cmd.Parameters.AddWithValue("@days", tg.Days);
+                cmd.Parameters.AddWithValue("@months", tg.Months);
+                cmd.Parameters.AddWithValue("@years", tg.Years);
+                cmd.ExecuteNonQuery();
+            }
+            
             con.Close();
         }
 
@@ -223,9 +252,9 @@ namespace ManageStaffServiceWCF
             SqlConnection con = new SqlConnection(strQuery);
             con.Open();
             SqlCommand cmd = new SqlCommand("insert into chamcong (idnv,idtg,tongngay) values (@idnv,@idtg,@tongngay)", con);
-            cmd.Parameters.AddWithValue("@idnv", tg.Idnv);
-            cmd.Parameters.AddWithValue("@idtg", tg.Idtg);
-            cmd.Parameters.AddWithValue("@tongngay", tg.Tongngay);
+            cmd.Parameters.AddWithValue("@idnv", cc.Idnv);
+            cmd.Parameters.AddWithValue("@idtg", cc.Idtg);
+            cmd.Parameters.AddWithValue("@tongngay", cc.Tongngay);
             cmd.ExecuteNonQuery();
             con.Close();
         }
@@ -243,21 +272,20 @@ namespace ManageStaffServiceWCF
             SqlDataAdapter adapter = new SqlDataAdapter(cmd);
             adapter.Fill(data);
             return data.Rows.Count > 0;
+        }
 
-=======
-        public DataSet FindChucVu(ChucVu cv)
+        public bool checkThoiGian(thoigian tg)
         {
             SqlConnection con = new SqlConnection(strQuery);
+            DataTable data = new DataTable();
             con.Open();
-            SqlCommand cmd = new SqlCommand("select * from chucvu where name like N'%@name%'", con);
-            cmd.Parameters.AddWithValue("@name", cv.CVname);
-            SqlDataAdapter sda = new SqlDataAdapter();
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            cmd.ExecuteNonQuery();
-            con.Close();
-            return ds;
->>>>>>> 8014ba28d7b286fdedcce68d022f7eb03038a599
+            SqlCommand cmd = new SqlCommand("select * from thoigian tg where days = @days and months= @months and years = @years ", con);
+            cmd.Parameters.AddWithValue("@days", tg.Days);
+            cmd.Parameters.AddWithValue("@months", tg.Months);
+            cmd.Parameters.AddWithValue("@years", tg.Years);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(data);
+            return data.Rows.Count > 0;
         }
     }
 }

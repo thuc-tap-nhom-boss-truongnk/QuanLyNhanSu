@@ -18,6 +18,9 @@ namespace ManageStaffServiceWCF
         DataSet ShowNhanVien();
 
         [OperationContract]
+        DataSet ShowNhanVienRG();
+
+        [OperationContract]
         string AddNhanVien(NhanVien nv);
 
         [OperationContract]
@@ -54,6 +57,17 @@ namespace ManageStaffServiceWCF
 
         [OperationContract]
         DataSet FindChucVu(ChucVu cv);
+
+        [OperationContract]
+        void addThoiGian(thoigian tg);
+
+        [OperationContract]
+        void addChamCong(chamcong cc);
+
+        [OperationContract]
+        bool checkChamCong(int idnv, int days, int months, int years);
+        [OperationContract]
+        bool checkThoiGian(thoigian tg);   
 
     }
 
@@ -190,6 +204,7 @@ namespace ManageStaffServiceWCF
         }
     }
 
+    [DataContract]
     public class thoigian
     {
         int id;
@@ -197,12 +212,17 @@ namespace ManageStaffServiceWCF
         int months;
         int years;
 
+        [DataMember]
         public int Id { get => id; set => id = value; }
+        [DataMember]
         public int Days { get => days; set => days = value; }
+        [DataMember]
         public int Months { get => months; set => months = value; }
+        [DataMember]
         public int Years { get => years; set => years = value; }
     }
 
+    [DataContract]
     public class chamcong
     {
         int id;
@@ -210,9 +230,13 @@ namespace ManageStaffServiceWCF
         int idtg;
         int tongngay;
 
+        [DataMember]
         public int Id { get => id; set => id = value; }
+        [DataMember]
         public int Idnv { get => idnv; set => idnv = value; }
+        [DataMember]
         public int Idtg { get => idtg; set => idtg = value; }
+        [DataMember]
         public int Tongngay { get => tongngay; set => tongngay = value; }
     }
 }
