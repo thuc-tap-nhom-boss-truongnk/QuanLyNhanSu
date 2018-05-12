@@ -52,6 +52,9 @@ namespace ManageStaffServiceWCF
         [OperationContract]
         void UpdateChucVu(ChucVu cv);
 
+        [OperationContract]
+        DataSet FindChucVu(ChucVu cv);
+
     }
 
 

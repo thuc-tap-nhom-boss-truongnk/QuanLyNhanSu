@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace ManageStaffServiceWCF
 {
@@ -60,7 +60,7 @@ namespace ManageStaffServiceWCF
         {
             SqlConnection con = new SqlConnection(strQuery);
             con.Open();
-            SqlCommand cmd = new SqlCommand("select dbo.nhanvien.id, dbo.nhanvien.name, birth, gender,phone,address, cmt,level, dbo.chucvu.name, dbo.phongban.name from dbo.nhanvien, dbo.chucvu,dbo.phongban where chucvu.id=nhanvien.idcv and nhanvien.idpb=phongban.id", con);
+            SqlCommand cmd = new SqlCommand("select dbo.nhanvien.id, dbo.nhanvien.name, birth, gender,phone,address, cmt,level, dbo.chucvu.id, dbo.chucvu.name, dbo.phongban.id, dbo.phongban.name from dbo.nhanvien, dbo.chucvu,dbo.phongban where chucvu.id=nhanvien.idcv and nhanvien.idpb=phongban.id", con);
             SqlDataAdapter sda = new SqlDataAdapter(cmd);
             DataSet ds = new DataSet();
             sda.Fill(ds);
@@ -73,7 +73,7 @@ namespace ManageStaffServiceWCF
         {
             SqlConnection con = new SqlConnection(strQuery);
             con.Open();
-            SqlCommand cmd = new SqlCommand("update  nhanvien set name=@name, birth=@birth, gender=@gender, phone=@phone, address=@address, cmt=@cmt, level=@level, idcv=@idcv, idpb=@idpb where id=@id ");
+            SqlCommand cmd = new SqlCommand("update  nhanvien set name=@name, birth=@birth, gender=@gender, phone=@phone, address=@address, cmt=@cmt, level=@level, idcv=@idcv, idpb=@idpb where id=@id ", con);
             cmd.Parameters.AddWithValue("@id", nv.NVid);
             cmd.Parameters.AddWithValue("@name", nv.NVname);
             cmd.Parameters.AddWithValue("@birth", nv.NVdob);
@@ -141,7 +141,7 @@ namespace ManageStaffServiceWCF
         {
             SqlConnection con = new SqlConnection(strQuery);
             con.Open();
-            SqlCommand cmd = new SqlCommand("update phongban set name=@name where id=@id ");
+            SqlCommand cmd = new SqlCommand("update phongban set name=@name where id=@id", con);
             cmd.Parameters.AddWithValue("@id", pb.PBid);
             cmd.Parameters.AddWithValue("@name", pb.PBname);
             cmd.ExecuteNonQuery();
@@ -198,11 +198,25 @@ namespace ManageStaffServiceWCF
         {
             SqlConnection con = new SqlConnection(strQuery);
             con.Open();
-            SqlCommand cmd = new SqlCommand("update chucvu set name=@name where id=@id ");
+            SqlCommand cmd = new SqlCommand("update chucvu set name=@name where id=@id", con);
             cmd.Parameters.AddWithValue("@id", cv.CVid);
             cmd.Parameters.AddWithValue("@name", cv.CVname);
             cmd.ExecuteNonQuery();
             con.Close();
+        }
+
+        public DataSet FindChucVu(ChucVu cv)
+        {
+            SqlConnection con = new SqlConnection(strQuery);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select * from chucvu where name like N'%@name%'", con);
+            cmd.Parameters.AddWithValue("@name", cv.CVname);
+            SqlDataAdapter sda = new SqlDataAdapter();
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            return ds;
         }
     }
 }
