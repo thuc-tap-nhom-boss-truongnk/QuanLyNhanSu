@@ -186,4 +186,30 @@ namespace ManageStaffServiceWCF
             set { name = value; }
         }
     }
+
+    public class thoigian
+    {
+        int id;
+        int days;
+        int months;
+        int years;
+
+        public int Id { get => id; set => id = value; }
+        public int Days { get => days; set => days = value; }
+        public int Months { get => months; set => months = value; }
+        public int Years { get => years; set => years = value; }
+    }
+
+    public class chamcong
+    {
+        int id;
+        int idnv;
+        int idtg;
+        int tongngay;
+
+        public int Id { get => id; set => id = value; }
+        public int Idnv { get => idnv; set => idnv = value; }
+        public int Idtg { get => idtg; set => idtg = value; }
+        public int Tongngay { get => tongngay; set => tongngay = value; }
+    }
 }

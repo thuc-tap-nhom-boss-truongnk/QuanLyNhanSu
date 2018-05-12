@@ -204,5 +204,45 @@ namespace ManageStaffServiceWCF
             cmd.ExecuteNonQuery();
             con.Close();
         }
+
+        public void addThoiGian(thoigian tg)
+        {
+            SqlConnection con = new SqlConnection(strQuery);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into thoigian (days,months,years) values (@days,@months,@years)", con);
+            cmd.Parameters.AddWithValue("@days", tg.Days);
+            cmd.Parameters.AddWithValue("@months", tg.Months);
+            cmd.Parameters.AddWithValue("@years", tg.Years);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public void addChamCong(chamcong cc)
+        {
+            SqlConnection con = new SqlConnection(strQuery);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("insert into chamcong (idnv,idtg,tongngay) values (@idnv,@idtg,@tongngay)", con);
+            cmd.Parameters.AddWithValue("@idnv", tg.Idnv);
+            cmd.Parameters.AddWithValue("@idtg", tg.Idtg);
+            cmd.Parameters.AddWithValue("@tongngay", tg.Tongngay);
+            cmd.ExecuteNonQuery();
+            con.Close();
+        }
+
+        public bool checkChamCong(int idnv, int days, int months, int years)
+        {
+            SqlConnection con = new SqlConnection(strQuery);
+            DataTable data = new DataTable();
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select idnv,days,months,years from chamcong cc join thoigian tg on cc.idtg = tg.id where idnv = @idnv and days = @days and months= @months and years = @years ", con);
+            cmd.Parameters.AddWithValue("@idnv", idnv);
+            cmd.Parameters.AddWithValue("@days", days);
+            cmd.Parameters.AddWithValue("@months", months);
+            cmd.Parameters.AddWithValue("@years", years);
+            SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+            adapter.Fill(data);
+            return data.Rows.Count > 0;
+
+        }
     }
 }
