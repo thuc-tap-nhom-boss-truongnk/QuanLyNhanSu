@@ -21,6 +21,9 @@ namespace ManageStaffServiceWCF
         DataSet ShowNhanVienRG();
 
         [OperationContract]
+        DataSet ShowNhanVienSeach(string id, string name);
+
+        [OperationContract]
         string AddNhanVien(NhanVien nv);
 
         [OperationContract]
@@ -62,12 +65,19 @@ namespace ManageStaffServiceWCF
         void addThoiGian(thoigian tg);
 
         [OperationContract]
+        int getTongNgay(DateTime date, int idnv);
+
+        [OperationContract]
+        int getIdTG(DateTime date);
+
+        [OperationContract]
         void addChamCong(chamcong cc);
 
         [OperationContract]
         bool checkChamCong(int idnv, int days, int months, int years);
         [OperationContract]
-        bool checkThoiGian(thoigian tg);   
+        bool checkThoiGian(thoigian tg);
+        
 
     }
 

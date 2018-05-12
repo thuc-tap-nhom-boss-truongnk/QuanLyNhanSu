@@ -82,6 +82,19 @@ namespace ManageStaffServiceWCF
             return ds;
         }
 
+        public DataSet ShowNhanVienSeach(string id, string name)
+        {
+            SqlConnection con = new SqlConnection(strQuery);
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select dbo.nhanvien.id, dbo.nhanvien.name, birth from dbo.nhanvien WHERE id like '%"+id+"%' AND name LIKE N'%"+name+"%'", con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            cmd.ExecuteNonQuery();
+            con.Close();
+            return ds;
+        }
+
         public void UpdateNhanVien(NhanVien nv)
         {
             SqlConnection con = new SqlConnection(strQuery);
@@ -245,6 +258,44 @@ namespace ManageStaffServiceWCF
             }
             
             con.Close();
+        }
+
+        public int getIdTG(DateTime date)
+        {
+            SqlConnection con = new SqlConnection(strQuery);
+            con.Open();
+            DataTable dbtg = new DataTable();
+            SqlCommand cmd = new SqlCommand("select id from thoigian where days= @days and months = @months and years = @years", con);
+            cmd.Parameters.AddWithValue("@days", date.Day);
+            cmd.Parameters.AddWithValue("@months", date.Month);
+            cmd.Parameters.AddWithValue("@years", date.Year);
+            SqlDataAdapter adt = new SqlDataAdapter(cmd);
+            adt.Fill(dbtg);
+            con.Close();
+            int idtg = Convert.ToInt32(dbtg.Rows[0][0].ToString());
+            return idtg;
+        }
+
+        public int getTongNgay(DateTime date, int idnv)
+        {
+            SqlConnection con = new SqlConnection(strQuery);
+            con.Open();
+            DataTable dbtong = new DataTable();
+            SqlCommand cmd = new SqlCommand("select max(cc.tongngay) from chamcong cc join thoigian tg on cc.idtg = tg.id where cc.idnv = @idnv and tg.months = @months and tg.years = @years ", con);
+            cmd.Parameters.AddWithValue("@idnv", idnv);
+            cmd.Parameters.AddWithValue("@months", date.Month);
+            cmd.Parameters.AddWithValue("@years", date.Year);
+            SqlDataAdapter adapter2 = new SqlDataAdapter(cmd);
+            adapter2.Fill(dbtong);
+            con.Close();
+            int idtong = 0;
+            string sttong = dbtong.Rows[0][0].ToString();
+            if(sttong != "")
+            {
+                idtong = Convert.ToInt32(sttong);
+            }
+            
+            return idtong;
         }
 
         public void addChamCong(chamcong cc)

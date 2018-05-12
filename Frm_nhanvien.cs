@@ -133,5 +133,15 @@ namespace WFQLNV
         {
 
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_search_Click(object sender, EventArgs e)
+        {
+
+        }
     } 
 }

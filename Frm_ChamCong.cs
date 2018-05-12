@@ -84,6 +84,10 @@ namespace WFQLNV
             {
                 btnDiemDanh.Enabled = true;
             }
+            else
+            {
+                btnDiemDanh.Enabled = false;
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -93,7 +97,26 @@ namespace WFQLNV
 
         private void btnDiemDanh_Click(object sender, EventArgs e)
         {
+            DateTime date = DateTime.Now;
             ServiceManageStaff.chamcong cc = new ServiceManageStaff.chamcong();
+            cc.Idnv = Convert.ToInt32(txtMaNV.Text);
+            int idtg = obj.getIdTG(date);
+            cc.Idtg = idtg;
+            int tongngay = obj.getTongNgay(date, cc.Idnv);
+            cc.Tongngay = tongngay+1;
+
+            try
+            {
+                obj.addChamCong(cc);
+                MessageBox.Show("Điểm danh thành công");
+                btnDiemDanh.Enabled = false;
+            }
+            catch
+            {
+                MessageBox.Show("Điểm danh không thành công");
+                btnDiemDanh.Enabled = true;
+            }
+            
         }
 
         private void lbCurrentDate_Click(object sender, EventArgs e)
@@ -104,6 +127,16 @@ namespace WFQLNV
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnSeach_Click(object sender, EventArgs e)
+        {
+
+            string id = txtSeachMaNV.Text;
+            string name = txtSeachNameNV.Text;
+            DataSet ds = new DataSet();
+            ds = obj.ShowNhanVienSeach(id,name);
+            dgvNhanVien.DataSource = ds.Tables[0];
         }
     }
 }
